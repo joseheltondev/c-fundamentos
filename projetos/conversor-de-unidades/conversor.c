@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 float converter_comprimento(int origem, int destino, float valor) {
-    
-    //convertendo a unidade de origem para metros
+    //convertendo a unidade de origem para a unidade metros
     switch (origem) {
     case 1:
         valor = valor * 1; // Metro para metro
@@ -35,7 +34,45 @@ float converter_comprimento(int origem, int destino, float valor) {
     }
 
     return valor;
-}  
+}
+
+float converter_massa(int origem, int destino, float valor) {
+    //convertendo a unidade de origem para a unidade grama
+    switch (origem) {
+    case 1:
+        valor = valor * 1000; // Quilograma para grama
+        break;
+    case 2:
+        valor = valor * 1; // Grama para grama
+        break;
+    case 3:
+        valor = valor / 1000; // Miligrama para grama
+        break;
+    case 4:
+        valor = valor * 1000000; // Tonelada para grama
+        break;
+    }
+
+    //convertendo de gramas para a unidade de destino
+    switch (destino) {
+    case 1:
+        valor = valor / 1000; // Grama para quilograma
+        break;
+    case 2:
+        valor = valor * 1; // Grama para grama
+        break;
+    case 3:
+        valor = valor * 1000; // Grama para miligrama
+        break;
+    case 4:
+        valor = valor / 1000000; // Grama para tonelada
+        break;
+    }
+
+    return valor;
+}
+
+
 
 int main(){
     
@@ -98,7 +135,7 @@ int main(){
             printf("Digite o Valor a ser convertido: ");
             scanf("%lf", &valor);
 
-            double resultado = converter_comprimento(origem, destino, valor);
+            resultado = converter_comprimento(origem, destino, valor);
             printf("Resultado: %.2lf\n", resultado);
             
             break;
@@ -133,7 +170,13 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 4: ");
                 scanf("%d", &destino);
             }
-            
+
+            //fazendo a conversão de massa
+            printf("Digite o Valor a ser convertido: ");
+            scanf("%lf", &valor);
+            resultado = converter_massa(origem, destino, valor);
+            printf("Resultado: %.2lf\n", resultado);
+
             break;
         case 3:
             //Menu de opções para conversão de temperatura
