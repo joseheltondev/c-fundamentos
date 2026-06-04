@@ -72,6 +72,36 @@ float converter_massa(int origem, int destino, float valor) {
     return valor;
 }
 
+float converter_temperatura(int origem, int destino, float valor) {
+    //convertendo a unidade de origem para a unidade Celsius
+    switch (origem) {
+    case 1:
+        valor = valor * 1; // Celsius para Celsius
+        break;
+    case 2:
+        valor = (valor - 32) * 5 / 9; // Fahrenheit para Celsius
+        break;
+    case 3:
+        valor = valor - 273.15; // Kelvin para Celsius
+        break;
+    }
+
+    //convertendo de Celsius para a unidade de destino
+    switch (destino) {
+    case 1:
+        valor = valor * 1; // Celsius para Celsius
+        break;
+    case 2:
+        valor = (valor * 9 / 5) + 32; // Celsius para Fahrenheit
+        break;
+    case 3:
+        valor = valor + 273.15; // Celsius para Kelvin
+        break;
+    }
+
+    return valor;
+}
+
 
 
 int main(){
@@ -130,6 +160,7 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 4: ");
                 scanf("%d", &destino);
             }
+            printf("-------------------------------\n");
 
             //fazendo a conversão de comprimento
             printf("Digite o Valor a ser convertido: ");
@@ -170,6 +201,7 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 4: ");
                 scanf("%d", &destino);
             }
+            printf("-------------------------------\n");  
 
             //fazendo a conversão de massa
             printf("Digite o Valor a ser convertido: ");
@@ -207,6 +239,13 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 3: ");
                 scanf("%d", &destino);
             }
+            printf("-------------------------------\n");
+
+            //fazendo a conversão de temperatura
+            printf("Digite o Valor a ser convertido: ");
+            scanf("%lf", &valor);
+            resultado = converter_temperatura(origem, destino, valor);
+            printf("Resultado: %.2lf\n", resultado);
 
             break;
         case 4:
@@ -237,6 +276,7 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 3: ");
                 scanf("%d", &destino);
             }
+            printf("-------------------------------\n");  
 
             break;
         case 5:
