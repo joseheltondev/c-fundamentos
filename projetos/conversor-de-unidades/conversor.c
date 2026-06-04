@@ -1,9 +1,49 @@
 #include <stdio.h>
 
+float converter_comprimento(int origem, int destino, float valor) {
+    
+    //convertendo a unidade de origem para metros
+    switch (origem) {
+    case 1:
+        valor = valor * 1; // Metro para metro
+        break;
+    case 2:
+        valor = valor / 100; // Centímetro para metro
+        break;
+    case 3:
+        valor = valor / 1000; // Milímetro para metro
+        break;
+    case 4:
+        valor = valor * 1000; // Quilômetro para metro
+        break;
+    }
+
+    //convertendo de metros para a unidade de destino
+    switch (destino) {
+    case 1:
+        valor = valor * 1; // Metro para metro
+        break;
+    case 2:
+        valor = valor * 100; // Metro para Centímetro
+        break;
+    case 3:
+        valor = valor * 1000; // Metro para Milímetro
+        break;
+    case 4:
+        valor = valor / 1000; // Metro para Quilômetro
+        break;
+    }
+
+    return valor;
+}  
+
 int main(){
     
+    //Criando as variáveis para armazenar as opções do usuário
     int opcao, origem, destino;
-    
+    //Criando as variáveis para armazenar o valor a ser convertido e o resultado da conversão
+    double valor, resultado;
+
     printf("====Conversor de Unidades====\n");
     //Exibição do menu
     printf("Escolha a unidade de origem:\n");
@@ -53,8 +93,15 @@ int main(){
                 printf("Opção inválida. Digite uma opção de 1 a 4: ");
                 scanf("%d", &destino);
             }
-            break;
 
+            //fazendo a conversão de comprimento
+            printf("Digite o Valor a ser convertido: ");
+            scanf("%lf", &valor);
+
+            double resultado = converter_comprimento(origem, destino, valor);
+            printf("Resultado: %.2lf\n", resultado);
+            
+            break;
         case 2:
             //Menu de opções para conversão de massa
             printf("Massa selecionada!\n");
