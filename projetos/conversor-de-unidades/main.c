@@ -102,6 +102,35 @@ float converter_temperatura(int origem, int destino, float valor) {
     return valor;
 }
 
+float converter_tempo(int origem, int destino, float valor) {
+    //convertendo a unidade de origem para a unidade segundos
+    switch (origem) {
+    case 1:
+        valor = valor * 1; // Segundo para segundo
+        break;
+    case 2:
+        valor = valor * 60; // Minuto para segundo
+        break;
+    case 3:
+        valor = valor * 3600; // Hora para segundo
+        break;
+    }
+
+    //convertendo de segundos para a unidade de destino
+    switch (destino) {
+    case 1:
+        valor = valor * 1; // Segundo para segundo
+        break;
+    case 2:
+        valor = valor / 60; // Segundo para minuto
+        break;
+    case 3:
+        valor = valor / 3600; // Segundo para hora
+        break;
+    }
+
+    return valor;
+}
 
 
 int main(){
@@ -268,7 +297,7 @@ int main(){
             printf("1. Segundo (s)\n");
             printf("2. Minuto (min)\n");
             printf("3. Hora (h)\n");
-            printf("Digite a opção da unidade de destino:");
+            printf("Digite a opção da unidade de destino: ");
             scanf("%d", &destino);
 
             //Validação da opção escolhida
@@ -277,6 +306,12 @@ int main(){
                 scanf("%d", &destino);
             }
             printf("-------------------------------\n");  
+
+            //fazendo a conversão de tempo
+            printf("Digite o Valor a ser convertido: ");
+            scanf("%lf", &valor);
+            resultado = converter_tempo(origem, destino, valor);
+            printf("Resultado: %.2lf\n", resultado);
 
             break;
         case 5:
