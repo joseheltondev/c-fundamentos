@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float converter_comprimento(int origem, int destino, float valor) {
+double converter_comprimento(int origem, int destino, double valor) {
     //convertendo a unidade de origem para a unidade metros
     switch (origem) {
     case 1:
@@ -36,7 +36,7 @@ float converter_comprimento(int origem, int destino, float valor) {
     return valor;
 }
 
-float converter_massa(int origem, int destino, float valor) {
+double converter_massa(int origem, int destino, double valor) {
     //convertendo a unidade de origem para a unidade grama
     switch (origem) {
     case 1:
@@ -72,7 +72,7 @@ float converter_massa(int origem, int destino, float valor) {
     return valor;
 }
 
-float converter_temperatura(int origem, int destino, float valor) {
+double converter_temperatura(int origem, int destino, double valor) {
     //convertendo a unidade de origem para a unidade Celsius
     switch (origem) {
     case 1:
@@ -102,7 +102,7 @@ float converter_temperatura(int origem, int destino, float valor) {
     return valor;
 }
 
-float converter_tempo(int origem, int destino, float valor) {
+double converter_tempo(int origem, int destino, double valor) {
     //convertendo a unidade de origem para a unidade segundos
     switch (origem) {
     case 1:
