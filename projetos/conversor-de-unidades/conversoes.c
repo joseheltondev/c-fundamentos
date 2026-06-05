@@ -1,3 +1,5 @@
+#include "conversoes.h"
+
 double converter_comprimento(int origem, int destino, double valor) {
     //convertendo a unidade de origem para a unidade metros
     switch (origem) {
