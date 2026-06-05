@@ -7,6 +7,11 @@ int main() {
     int opcao, origem, destino;
     //Criando as variáveis para armazenar o valor a ser convertido e o resultado da conversão
     double valor, resultado;
+    //Criando arrays para armazenar as unidades de medidas
+    char unidades_comprimento[4][10] = {"m", "cm", "mm", "km"};
+    char unidades_massa[4][10] = {"kg", "g", "mg", "t"};
+    char unidades_temperatura[3][10] = {"°C", "°F", "K"};
+    char unidades_tempo[3][10] = {"s", "min", "h"};
 
     printf("====Conversor de Unidades====\n");
     //Exibição do menu
@@ -64,7 +69,7 @@ int main() {
             scanf("%lf", &valor);
 
             resultado = converter_comprimento(origem, destino, valor);
-            printf("Resultado: %.2lf\n", resultado);
+            printf("Resultado: %.2lf %s equivalem a %.2lf %s\n", valor, unidades_comprimento[origem - 1], resultado, unidades_comprimento[destino - 1]);
             
             break;
         case 2:
@@ -104,7 +109,7 @@ int main() {
             printf("Digite o Valor a ser convertido: ");
             scanf("%lf", &valor);
             resultado = converter_massa(origem, destino, valor);
-            printf("Resultado: %.2lf\n", resultado);
+            printf("Resultado: %.2lf %s equivalem a %.2lf %s\n", valor, unidades_massa[origem - 1], resultado, unidades_massa[destino - 1]);
 
             break;
         case 3:
@@ -142,7 +147,7 @@ int main() {
             printf("Digite o Valor a ser convertido: ");
             scanf("%lf", &valor);
             resultado = converter_temperatura(origem, destino, valor);
-            printf("Resultado: %.2lf\n", resultado);
+            printf("Resultado: %.2lf %s equivalem a %.2lf %s\n", valor, unidades_temperatura[origem - 1], resultado, unidades_temperatura[destino - 1]);
 
             break;
         case 4:
@@ -179,7 +184,7 @@ int main() {
             printf("Digite o Valor a ser convertido: ");
             scanf("%lf", &valor);
             resultado = converter_tempo(origem, destino, valor);
-            printf("Resultado: %.2lf\n", resultado);
+            printf("Resultado: %.2lf %s equivalem a %.2lf %s\n", valor, unidades_tempo[origem - 1], resultado, unidades_tempo[destino - 1]);
 
             break;
         case 5:
