@@ -40,11 +40,3 @@ Conceitos praticados:
 ## Objetivo
 
 Praticar lógica de programação e fortalecer os fundamentos da linguagem C por meio de exercícios e pequenos projetos.
-
-## Ferramentas
-
-- Linguagem C
-- GCC
-- Git
-- GitHub
-- Visual Studio Code
