@@ -24,6 +24,11 @@ int main() {
         printf("Escolha uma opção de 1 até 3 para fazer sua escolha: ");
         scanf("%d", &escolhaDoJogador);
 
+        while (escolhaDoJogador < 1 || escolhaDoJogador > 3) {
+            printf("Opcao invalida! Digite uma opcao de 1 a 3: ");
+            scanf("%d", &escolhaDoJogador);
+        }
+
         escolhaDoComputador = rand() % 3 + 1;
 
         switch (escolhaDoJogador) {
@@ -73,6 +78,6 @@ int main() {
         scanf(" %c", &jogarNovamente);   
     }
 
-    
+
         return 0;
     }
