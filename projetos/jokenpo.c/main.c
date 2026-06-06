@@ -9,7 +9,7 @@ int main() {
     //Semente para gerar números aleatórios
     srand(time(0));
     //variável para controlar o loop do jogo
-    char jogarNovamente;
+    char jogarNovamente = 'S';
 
     //Exibindo o título do jogo
     printf("===============================\n");
