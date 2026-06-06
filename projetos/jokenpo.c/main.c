@@ -105,5 +105,12 @@ int main() {
     printf("      Taxa de Vitórias: %.2f%%\n", taxaVitorias);
     printf("===============================\n");
 
+    if (placarJogador > placarComputador)
+    printf("VOCE GANHOU O JOGO!\n");
+    else if (placarJogador < placarComputador)
+    printf("COMPUTADOR GANHOU O JOGO!\n");
+    else
+    printf("O JOGO TERMINOU EMPATADO!\n");
+
     return 0;
 }
