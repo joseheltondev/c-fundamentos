@@ -8,15 +8,28 @@ int main() {
     int escolhaDoJogador, escolhaDoComputador;
     //Semente para gerar números aleatórios
     srand(time(0));
-    //variável para controlar o loop do jogo
-    char jogarNovamente = 'S';
-
+    //variável para quantidade de partidas
+    int rodadas;
+    //variável para armazenar o placar do jogo
+    int placarJogador = 0, placarComputador = 0, empates = 0;
+    //variável para calcular a taxa de vitórias do jogador
+    double taxaVitorias;
+    
     //Exibindo o título do jogo
     printf("===============================\n");
     printf("         ** JOKENPO ** \n");
     printf("===============================\n");
     
-    while (jogarNovamente != 'N' && jogarNovamente != 'n') {
+    printf("Quantas rodadas voce deseja jogar? ");
+    scanf("%d", &rodadas);
+    //Validação da quantidade de rodadas
+    while (rodadas < 1) {
+        printf("Numero de rodadas invalido! Digite um numero maior que 0: ");
+        scanf("%d", &rodadas);
+    }
+
+    for (int i = 0; i < rodadas; i++) {
+        printf("\n=== Rodada %d de %d ===\n", i + 1, rodadas);
         printf("Faca Sua escolha:\n");
         printf("1. Pedra\n");
         printf("2. Papel\n");
@@ -60,24 +73,37 @@ int main() {
 
         if (escolhaDoComputador == escolhaDoJogador){
             printf("**EMPATOU**\n");
+            empates++;
         }
         else if (escolhaDoJogador == 1 && escolhaDoComputador == 3) {
             printf("**VOCE VENCEU**\n");
+            placarJogador++;
         }
         else if (escolhaDoJogador == 2 && escolhaDoComputador == 1) {
             printf("**VOCE VENCEU**\n");
+            placarJogador++;
         }
         else if (escolhaDoJogador == 3 && escolhaDoComputador == 2) {
             printf("**VOCE VENCEU**\n");
+            placarJogador++;
         }
         else {
             printf("**VOCE PERDEU**\n");
+            placarComputador++;
         }
         printf("===============================\n");
-        printf("Deseja jogar novamente? (S/N): ");
-        scanf(" %c", &jogarNovamente);   
     }
 
+    //Calculando a taxa de vitórias do jogador
+    taxaVitorias = (double)placarJogador / rodadas * 100;
 
-        return 0;
-    }
+    //Exibindo o placar final do jogo
+    printf("         * PLACAR * \n");
+    printf("      Jogador: %d\n", placarJogador);
+    printf("      Computador: %d\n", placarComputador);
+    printf("      Empates: %d\n", empates);
+    printf("      Taxa de Vitórias: %.2f%%\n", taxaVitorias);
+    printf("===============================\n");
+
+    return 0;
+}
